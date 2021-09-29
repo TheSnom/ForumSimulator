@@ -1,0 +1,2 @@
+# ForumSimulator
+An automatic thing
