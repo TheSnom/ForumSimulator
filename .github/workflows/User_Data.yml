@@ -20,5 +20,5 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint `ls -R|grep .py$|xargs`
-C=Input()
-Print(c)
+c=input()
+print(c)
