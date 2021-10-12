@@ -1,0 +1,68 @@
+#posts are 1-10 posts, 0-<amount of #posts*2> likes/dislikes			
+#reposts are 2-8 posts, 0-<amount of #posts*2> likes/dislikes			
+#profile posts are 1 post, 0-10 likes and 0-3 dislikes			
+#postfarm is 5-50 posts			
+#ultrapostfarm is 75-180 posts commands			
+			
+import random			
+import math			
+			
+like_precent=int(input())	
+dislike_precent=int(input())						
+command_1=input()			
+command_2=input()			
+#command_3=input()			
+			
+			
+#outlining posts section			
+post_type_fg="/post-fg"	
+post_type_ot="/post-ot"	
+post_type_sb="/post-sb"	
+post_type_gh="/post-gh"
+post_type_hym="/post-hym"
+
+			
+#post calculation			
+post_post_count= random.randint(1,10)
+
+profile_post_post_count= random.randint(1,1)		
+#likes calculation			
+temp_post_like_count= random.randint(0,((post_post_count * 2)))			
+post_like_count= math.floor(temp_post_like_count * (like_precent/100))
+
+
+#dislikes calculation			
+temp_post_dislike_count= random.randint(0,((post_post_count * 2)))			
+post_dislike_count= math.floor(temp_post_dislike_count * (dislike_precent/100))			
+
+
+#for Forum Games Posts			
+if	post_type_fg in command_1:		
+		print("You posted '",command_1[8:],"' in the section Forum Games")	
+		print("Post Count:",post_post_count)	
+		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
+		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
+#for Sky-Block Posts
+if	post_type_sb in command_1:		
+		print("You posted '",command_1[8:],"' in the section Sky-Block")	
+		print("Post Count:",post_post_count)	
+		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
+		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
+#for Guides/Help Posts
+if	post_type_gh in command_1:		
+		print("You posted '",command_1[8:],"' in the section Guides/Stratagies")	
+		print("Post Count:",post_post_count)	
+		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
+		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")
+#for Minigames Posts
+if	post_type_hym in command_1:		
+		print("You posted '",command_1[8:],"' in the section Hypixel minigames")	
+		print("Post Count:",post_post_count)	
+		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
+		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
+#for off topic Posts
+if	post_type_ot in command_1:		
+		print("You posted '",command_1[8:],"' in the section Of Topic")	
+		print("Post Count:",post_post_count)	
+		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
+		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
