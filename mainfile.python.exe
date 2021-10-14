@@ -3,16 +3,18 @@
 #profile posts are 1 post, 0-10 likes and 0-3 dislikes			
 #postfarm is 5-50 posts			
 #ultrapostfarm is 75-180 posts commands			
-			
+
+#importing functions
 import random			
 import math			
-			
+
+#setting variable values			
 like_precent=int(input())	
 dislike_precent=int(input())						
 command_1=input()			
 command_2=input()			
-#command_3=input()			
-			
+like_precent_plus= like_precent + 25		
+boosted_section= "4"	
 			
 #outlining posts section			
 post_type_fg="/post-fg"	
@@ -20,49 +22,81 @@ post_type_ot="/post-ot"
 post_type_sb="/post-sb"	
 post_type_gh="/post-gh"
 post_type_hym="/post-hym"
+post_type_pf="/post-pf"
 
-			
-#post calculation			
-post_post_count= random.randint(1,10)
+#defining functions
+def ultra_postfarm ():
+	ultra_postfarm_posts= random.randint(75,180)
+	print("You Ultrapostfarmed", ultra_postfarm_posts,"posts !")
 
-profile_post_post_count= random.randint(1,1)		
-#likes calculation			
-temp_post_like_count= random.randint(0,((post_post_count * 2)))			
-post_like_count= math.floor(temp_post_like_count * (like_precent/100))
+def postfarm ():
+	postfarm_posts= random.randint(5,50)
+	print("You Postfarmed", postfarm_posts,"posts !")
 
+def post_posting (command_x,post_type,boosted_section,section_x,input_2):
+	if post_type in command_x:
+		if boosted_section == section_x:
+		#post calculation
+			post_post_count= random.randint(1,10)
+		#likes calculation
+			temp_post_like_count= random.randint(0,((post_post_count * 2)))
+			post_like_count= math.floor(temp_post_like_count * (like_precent_plus/100))
+		#dislikes calculation
+			temp_post_dislike_count= random.randint(0,((post_post_count * 2)))
+			post_dislike_count= math.floor(temp_post_dislike_count * (dislike_precent/100))
 
-#dislikes calculation			
-temp_post_dislike_count= random.randint(0,((post_post_count * 2)))			
-post_dislike_count= math.floor(temp_post_dislike_count * (dislike_precent/100))			
+		#Posting	
+			print("You posted '",command_x[8:],"'",input_2)	
+			print("Post Count:",post_post_count)	
+			print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent_plus,")")	
+			print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")
+		else:
+		#post calculation
+			post_post_count= random.randint(1,10)
+		#likes calculation
+			temp_post_like_count= random.randint(0,((post_post_count * 2)))
+			post_like_count= math.floor(temp_post_like_count * (like_precent/100))
+		#dislikes calculation
+			temp_post_dislike_count= random.randint(0,((post_post_count * 2)))
+			post_dislike_count= math.floor(temp_post_dislike_count * (dislike_precent/100))
+		#Posting	
+			print("You posted '",command_x[8:],"'",input_2)	
+			print("Post Count:",post_post_count)	
+			print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
+			print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")		
 
-
-#for Forum Games Posts			
-if	post_type_fg in command_1:		
-		print("You posted '",command_1[8:],"' in the section Forum Games")	
-		print("Post Count:",post_post_count)	
-		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
-		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
-#for Sky-Block Posts
-if	post_type_sb in command_1:		
-		print("You posted '",command_1[8:],"' in the section Sky-Block")	
-		print("Post Count:",post_post_count)	
-		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
-		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
-#for Guides/Help Posts
-if	post_type_gh in command_1:		
-		print("You posted '",command_1[8:],"' in the section Guides/Stratagies")	
+def profile_post_posting (command_x,post_type,boosted_section,section_x,input_2):
+	if post_type in command_x:
+	#post calculation
+		post_post_count= random.randint(1,1)
+	#likes calculation
+		temp_post_like_count= random.randint(0,10)
+		post_like_count= math.floor(temp_post_like_count * (like_precent/100))
+	#dislikes calculation
+		temp_post_dislike_count= random.randint(0,3)
+		post_dislike_count= math.floor(temp_post_dislike_count * (dislike_precent/100))
+	#Posting	
+		print("You posted '",command_x[8:],"'",input_2)	
 		print("Post Count:",post_post_count)	
 		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
 		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")
-#for Minigames Posts
-if	post_type_hym in command_1:		
-		print("You posted '",command_1[8:],"' in the section Hypixel minigames")	
-		print("Post Count:",post_post_count)	
-		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
-		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
-#for off topic Posts
-if	post_type_ot in command_1:		
-		print("You posted '",command_1[8:],"' in the section Of Topic")	
-		print("Post Count:",post_post_count)	
-		print("Like Count:",post_like_count,"(", temp_post_like_count,"*", like_precent,")")	
-		print("Dislike Count:",post_dislike_count,"(", temp_post_dislike_count,"*", dislike_precent,")")	
+
+#Regular Posting
+post_posting(command_1,post_type_sb,boosted_section,"1","in the SkyBlock section.")
+post_posting(command_1,post_type_hym,boosted_section,"2","in the Hypixel MiniGames section.")
+post_posting(command_1,post_type_gh,boosted_section,"3","in the Guides and Stratagies section.")
+post_posting(command_1,post_type_fg,boosted_section,"4","in the Forum Games section.")
+post_posting(command_1,post_type_ot,boosted_section,"5","in the Off Topic section.")
+#spacing
+print()
+print()
+#Profile Posting
+profile_post_posting(command_2,post_type_pf,boosted_section,"0","on your profile.")
+
+
+print()
+print()
+postfarm()
+print()
+print()
+ultra_postfarm()
